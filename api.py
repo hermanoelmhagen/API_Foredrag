@@ -30,4 +30,6 @@ URL = "http://api.apikatalogen.se/v1/sources"
 request_response = requests.get(URL)
 
 # Här låter vi bilblioteket pprint hjälpa oss att se till att utskriften i vår konsol blir mer läsbar.
+# Förväntat resultat här är att din konsol visar vilka API:n som hemsidan "apikatalogen.se" har i sin databas
+# över användbara svenska API:n.
 pprint.pprint(request_response.text)
