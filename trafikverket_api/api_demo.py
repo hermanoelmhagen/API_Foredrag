@@ -53,10 +53,10 @@ def static_demo(filename):
     pprint.pprint(response)
     
 def xml_parsing(filename):
-    tree = ET.parse(XML_FILE)
+    tree = ET.parse(filename)
     root = tree.getroot()
     root[0].set("authenticationkey", environ["API_KEY"])
-    tree.write(XML_FILE)
+    tree.write(filename)
 
     
 if __name__ == "__main__":
