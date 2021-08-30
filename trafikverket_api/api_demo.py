@@ -29,6 +29,16 @@ def main(argv):
         print("\nSomething went wrong :(\n")
 
 
+def static_demo(filename):
+
+    xml_parsing(filename)
+
+    with open(XML_FILE) as xml:
+        response = r.post(URL, data=xml.read(), headers=headers).json()
+
+    pprint.pprint(response)
+    
+
 def streaming_demo(filename):
 
     xml_parsing(filename)
@@ -42,16 +52,6 @@ def streaming_demo(filename):
     for msg in messages:
         print(msg)
         sleep(0.05)
-
-
-def static_demo(filename):
-
-    xml_parsing(filename)
-
-    with open(XML_FILE) as xml:
-        response = r.post(URL, data=xml.read(), headers=headers).json()
-
-    pprint.pprint(response)
 
 
 def xml_parsing(filename):
