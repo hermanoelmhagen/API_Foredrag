@@ -17,7 +17,7 @@
 import requests
 
 # pprint (pretty print) är mest ett bibliotek som används för estetik. Ibland när man "printar" ut (visar data i kommandotolk eller annan konsol)
-# så blir det väldigt grötigt. pprint gör att försök till att identifiera VAD det är för typ av
+# så blir det väldigt grötigt. pprint gör ett försök till att identifiera VAD det är för typ av
 # text du vill printa ut och gör om det till ett rimligt format att kolla på.
 import pprint
 
