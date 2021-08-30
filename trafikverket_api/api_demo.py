@@ -18,7 +18,7 @@ XML_FILE_STREAMING = "demo_streaming.xml"
 headers = {'Content-Type': 'text/xml'}
 
 
-def main(argv):
+def main(argv: list):
     if argv.lower() == "-static":
         static_demo(XML_FILE)
 
@@ -29,7 +29,7 @@ def main(argv):
         print("\nSomething went wrong :(\n")
 
 
-def static_demo(filename):
+def static_demo(filename: str):
 
     xml_parsing(filename)
 
@@ -39,7 +39,7 @@ def static_demo(filename):
     pprint.pprint(response)
     
 
-def streaming_demo(filename):
+def streaming_demo(filename: str):
 
     xml_parsing(filename)
 
@@ -54,7 +54,7 @@ def streaming_demo(filename):
         sleep(0.05)
 
 
-def xml_parsing(filename):
+def xml_parsing(filename: str):
     tree = ET.parse(filename)
     root = tree.getroot()
     root[0].set("authenticationkey", environ["API_KEY"])
