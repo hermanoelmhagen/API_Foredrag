@@ -1,8 +1,14 @@
 import requests as r
-from sseclient import SSEClient
-from time import sleep
 import pprint
 import sys
+import xml.etree.ElementTree as ET
+
+from os import environ
+from sseclient import SSEClient
+from time import sleep
+from dotenv import load_dotenv
+
+load_dotenv()
 
 URL = "https://api.trafikinfo.trafikverket.se/v2/data.json"
 
@@ -24,6 +30,8 @@ def main(argv):
 
 def streaming_demo(filename):
 
+    xml_parsing(filename)
+    
     with open(filename) as xml:
         response = r.post(URL, data=xml.read(), headers=headers).json()
         SSE_URL = response["RESPONSE"]["RESULT"][0]["INFO"]["SSEURL"]
@@ -37,10 +45,18 @@ def streaming_demo(filename):
 
 def static_demo(filename):
     
+    xml_parsing(filename)
+    
     with open(XML_FILE) as xml:
         response = r.post(URL, data=xml.read(), headers=headers).json()
         
     pprint.pprint(response)
+    
+def xml_parsing(filename):
+    tree = ET.parse(XML_FILE)
+    root = tree.getroot()
+    root[0].set("authenticationkey", environ["API_KEY"])
+    tree.write(XML_FILE)
 
     
 if __name__ == "__main__":
