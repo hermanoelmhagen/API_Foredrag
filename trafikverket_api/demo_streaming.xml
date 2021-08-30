@@ -1,5 +1,5 @@
 <REQUEST>
-      <LOGIN authenticationkey="cc5e509e0c8d4ca39d135b6652fefb25" />
+      <LOGIN />
       <QUERY sseurl= "true" objecttype="Situation" schemaversion="1.2" limit="1">
             <FILTER>
                   <OR>
