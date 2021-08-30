@@ -26,7 +26,7 @@ def main(argv):
         streaming_demo(XML_FILE_STREAMING)
 
     else:
-        print(f"\nApply following argument(s): -static or -streaming\n\nExample (remove quotes): \n\t'python {sys.argv[0]} -static'\n\t'python {sys.argv[0]} -streaming'")
+        print("\nSomething went wrong :(\n")
 
 def streaming_demo(filename):
 
@@ -60,7 +60,7 @@ def xml_parsing(filename):
 
     
 if __name__ == "__main__":
-    if len(sys.argv) == 2:
+    if len(sys.argv) == 2 and (sys.argv[1].lower() == "-static" or sys.argv[1].lower() == "-streaming"):
         main(sys.argv[1])
     else:
         print(f"\nApply following argument(s): -static or -streaming\n\nExample (remove quotes): \n\t'python {sys.argv[0]} -static'\n\t'python {sys.argv[0]} -streaming'")
