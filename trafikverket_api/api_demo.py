@@ -17,7 +17,6 @@ XML_FILE_STREAMING = "demo_streaming.xml"
 
 headers = {'Content-Type':'text/xml'}
 
-
 def main(argv):
     if argv.lower() == "-static":
         static_demo(XML_FILE)
@@ -28,6 +27,7 @@ def main(argv):
     else:
         print("\nSomething went wrong :(\n")
 
+        
 def streaming_demo(filename):
 
     xml_parsing(filename)
@@ -42,7 +42,7 @@ def streaming_demo(filename):
         print(msg)
         sleep(0.05)
 
-
+        
 def static_demo(filename):
     
     xml_parsing(filename)
@@ -51,6 +51,7 @@ def static_demo(filename):
         response = r.post(URL, data=xml.read(), headers=headers).json()
         
     pprint.pprint(response)
+
     
 def xml_parsing(filename):
     tree = ET.parse(filename)
